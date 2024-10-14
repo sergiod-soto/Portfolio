@@ -1,0 +1,32 @@
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.csproj.AssemblyReference.cache
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.GeneratedMSBuildEditorConfig.editorconfig
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.AssemblyInfoInputs.cache
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.AssemblyInfo.cs
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.csproj.CoreCompileInputs.cache
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\bin\Debug\net5.0\Travelling Salesman Problem.exe
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\bin\Debug\net5.0\Travelling Salesman Problem.deps.json
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\bin\Debug\net5.0\Travelling Salesman Problem.runtimeconfig.json
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\bin\Debug\net5.0\Travelling Salesman Problem.runtimeconfig.dev.json
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\bin\Debug\net5.0\Travelling Salesman Problem.dll
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\bin\Debug\net5.0\ref\Travelling Salesman Problem.dll
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\bin\Debug\net5.0\Travelling Salesman Problem.pdb
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.dll
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\obj\Debug\net5.0\ref\Travelling Salesman Problem.dll
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.pdb
+G:\Portfolio\Algoritmos\Problema del viajante\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.genruntimeconfig.cache
+G:\Portfolio\Algorithms\Travelling Salesman Problem\bin\Debug\net5.0\Travelling Salesman Problem.exe
+G:\Portfolio\Algorithms\Travelling Salesman Problem\bin\Debug\net5.0\Travelling Salesman Problem.deps.json
+G:\Portfolio\Algorithms\Travelling Salesman Problem\bin\Debug\net5.0\Travelling Salesman Problem.runtimeconfig.json
+G:\Portfolio\Algorithms\Travelling Salesman Problem\bin\Debug\net5.0\Travelling Salesman Problem.runtimeconfig.dev.json
+G:\Portfolio\Algorithms\Travelling Salesman Problem\bin\Debug\net5.0\Travelling Salesman Problem.dll
+G:\Portfolio\Algorithms\Travelling Salesman Problem\bin\Debug\net5.0\ref\Travelling Salesman Problem.dll
+G:\Portfolio\Algorithms\Travelling Salesman Problem\bin\Debug\net5.0\Travelling Salesman Problem.pdb
+G:\Portfolio\Algorithms\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.csproj.AssemblyReference.cache
+G:\Portfolio\Algorithms\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.GeneratedMSBuildEditorConfig.editorconfig
+G:\Portfolio\Algorithms\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.AssemblyInfoInputs.cache
+G:\Portfolio\Algorithms\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.AssemblyInfo.cs
+G:\Portfolio\Algorithms\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.csproj.CoreCompileInputs.cache
+G:\Portfolio\Algorithms\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.dll
+G:\Portfolio\Algorithms\Travelling Salesman Problem\obj\Debug\net5.0\ref\Travelling Salesman Problem.dll
+G:\Portfolio\Algorithms\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.pdb
+G:\Portfolio\Algorithms\Travelling Salesman Problem\obj\Debug\net5.0\Travelling Salesman Problem.genruntimeconfig.cache
