@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Portfolio\\Algorithms\\Travelling Salesman Problem\\Travelling Salesman Problem.csproj": {}
+    "G:\\Portfolio\\Travelling Salesman Problem\\Travelling Salesman Problem.csproj": {}
   },
   "projects": {
-    "G:\\Portfolio\\Algorithms\\Travelling Salesman Problem\\Travelling Salesman Problem.csproj": {
+    "G:\\Portfolio\\Travelling Salesman Problem\\Travelling Salesman Problem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Portfolio\\Algorithms\\Travelling Salesman Problem\\Travelling Salesman Problem.csproj",
+        "projectUniqueName": "G:\\Portfolio\\Travelling Salesman Problem\\Travelling Salesman Problem.csproj",
         "projectName": "Travelling Salesman Problem",
-        "projectPath": "G:\\Portfolio\\Algorithms\\Travelling Salesman Problem\\Travelling Salesman Problem.csproj",
+        "projectPath": "G:\\Portfolio\\Travelling Salesman Problem\\Travelling Salesman Problem.csproj",
         "packagesPath": "C:\\Users\\sergiod\\.nuget\\packages\\",
-        "outputPath": "G:\\Portfolio\\Algorithms\\Travelling Salesman Problem\\obj\\",
+        "outputPath": "G:\\Portfolio\\Travelling Salesman Problem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

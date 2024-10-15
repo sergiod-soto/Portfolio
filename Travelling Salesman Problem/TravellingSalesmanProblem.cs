@@ -238,7 +238,9 @@ namespace Travelling_Salesman_Problem
 			for (int i = 0; i < numOfVertices; i++)
 			{
 				nodes[i] = new Node(node.name);
-				nodes[i].connectTo(new Node(node.vertices[ite.Current].node2.name), node.vertices[ite.Current].weight);
+				nodes[i].connectTo(
+					new Node(node.vertices[ite.Current].node2.name), 
+					node.vertices[ite.Current].weight);
 
 				ite.MoveNext();
 			}
