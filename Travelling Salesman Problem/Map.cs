@@ -35,7 +35,11 @@ namespace Travelling_Salesman_Problem
 					Node nodeTo = nodes[n[nodeIterator]];
 					try
 					{
-						node.connectTo(nodeTo, weight);
+						if (weight > 0)
+						{
+							node.connectTo(nodeTo, weight);
+
+						}
 					}
 					finally
 					{
@@ -45,7 +49,6 @@ namespace Travelling_Salesman_Problem
 			}
 		}
 
-
 		public void Print()
 		{
 			if (nodes == null || nodes.Count == 0)
@@ -54,11 +57,6 @@ namespace Travelling_Salesman_Problem
 				return;
 			}
 			PrintGraph(nodes);
-		}
-		public void Print(string msg)
-		{
-			Console.WriteLine(msg);
-			Print();
 		}
 
 		static void PrintGraph(Dictionary<string, Node> map)

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static Travelling_Salesman_Problem.Map;
 
 namespace Travelling_Salesman_Problem
@@ -226,10 +223,21 @@ namespace Travelling_Salesman_Problem
 		}
 
 		/*
+		 *  Generate an array where each entry is a copy
+		 *  of node 'node' linked with each node wich was conected
 		 *  
+		 *  ej:
+		 *  
+		 *	argument:	node1
+		 *					└──> node2
+		 *					└──> node3
+		 *		    	
+		 *	return:			[node1, node2]
+		 *					[node1, node3]
 		 */
-		public Node[] NodeCombination(Node node)
+		public Node[] GetNodeCombination(Node node)
 		{
+
 			int numOfVertices = node.vertices.Keys.Count;
 			Node[] nodes = new Node[numOfVertices];
 			IEnumerator<string> ite = node.vertices.Keys.GetEnumerator();
@@ -248,13 +256,6 @@ namespace Travelling_Salesman_Problem
 		}
 
 
-		/*
-		 *  obtain a copy of a node with the first nodes conected
-		 */
-		public Node DuplicateNode(Node node)
-		{
-
-		}
 
 		public void PrintNodesArray(Node[] aux)
 		{

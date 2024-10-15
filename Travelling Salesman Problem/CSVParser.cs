@@ -46,11 +46,6 @@ namespace Travelling_Salesman_Problem
 
 		}
 
-		static void writeCSV(string path)
-		{
-
-		}
-
 
 		public static string[] parseLine(string line)
 		{
