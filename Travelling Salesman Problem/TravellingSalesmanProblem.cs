@@ -211,71 +211,37 @@ namespace Travelling_Salesman_Problem
 		 */
 		public Solution BruteForce_Solver(Map map)
 		{
-			GeneratePaths(map.mainNode);
-			return null;
-		}
-
-		public LinkedList<Node> GeneratePaths(Node node)
-		{
-
 
 			return null;
 		}
 
-		/*
-		 *  Generate an array where each entry is a copy
-		 *  of node 'node' linked with each node wich was conected
-		 *  
-		 *  ej:
-		 *  
-		 *	argument:	node1
-		 *					└──> node2
-		 *					└──> node3
-		 *		    	
-		 *	return:			[node1, node2]
-		 *					[node1, node3]
-		 */
-		public Node[] GetNodeCombination(Node node)
+		private class CombinationTree
 		{
+			LinkedList<LinkedList<Bubble>> columns = new();
 
-			int numOfVertices = node.vertices.Keys.Count;
-			Node[] nodes = new Node[numOfVertices];
-			IEnumerator<string> ite = node.vertices.Keys.GetEnumerator();
-			ite.MoveNext();
-
-			for (int i = 0; i < numOfVertices; i++)
+			public bool checkEnd(Node mainNode)
 			{
-				nodes[i] = new Node(node.name);
-				nodes[i].connectTo(
-					new Node(node.vertices[ite.Current].node2.name), 
-					node.vertices[ite.Current].weight);
-
-				ite.MoveNext();
-			}
-			return nodes;
-		}
-
-
-
-		public void PrintNodesArray(Node[] aux)
-		{
-			int i = 0;
-			foreach (Node node in aux)
-			{
-				Console.Write("- [" + i + "] ");
-				i++;
-
-				Node actualNode = node;
-				while (actualNode.vertices.Count > 0)
+				Node mainNode = columns.First.Value.First.Value.node;
+				LinkedList<Bubble> lastColumn = columns.Last.Value;
+				foreach (Bubble bubble in lastColumn)
 				{
-					Console.Write(actualNode.name + ", ");
-					IEnumerator<string> ite = actualNode.vertices.Keys.GetEnumerator();
-					ite.MoveNext();
-					actualNode = actualNode.vertices[ite.Current].node2;
+					if (bubble.nodesLeftToVisit.Count <= 0 &&
+						bubble.node.name == mainNode.name)
+					{
+
+					}
 				}
-				Console.WriteLine(actualNode.name);
+				return false;
+			}
+
+			private class Bubble
+			{
+				public Node node;
+				public HashSet<string> nodesLeftToVisit;
+				public Dictionary<int, Bubble> nextBubbles;
 			}
 		}
+
 	}
 }
 
