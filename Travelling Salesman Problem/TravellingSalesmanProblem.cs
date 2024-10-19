@@ -211,37 +211,74 @@ namespace Travelling_Salesman_Problem
 		 */
 		public Solution BruteForce_Solver(Map map)
 		{
+			CombinationTree tree = new(map);
+
 
 			return null;
 		}
 
 		private class CombinationTree
 		{
+			Map map;
 			LinkedList<LinkedList<Bubble>> columns = new();
 
-			public bool checkEnd(Node mainNode)
+			public CombinationTree(Map map)
 			{
-				Node mainNode = columns.First.Value.First.Value.node;
-				LinkedList<Bubble> lastColumn = columns.Last.Value;
-				foreach (Bubble bubble in lastColumn)
-				{
-					if (bubble.nodesLeftToVisit.Count <= 0 &&
-						bubble.node.name == mainNode.name)
-					{
-
-					}
-				}
-				return false;
+				this.map = map;
 			}
 
-			private class Bubble
+			public void NextIteration()
+			{
+				LinkedList<Bubble> lastColumn = columns.Last.Value;
+				columns.AddLast(new LinkedList<Bubble>());
+
+				foreach (Bubble bubble in lastColumn)
+				{
+					foreach (Vertex vertice in map.nodes[bubble.node.name].vertices.Values)
+					{
+						Node node2 = vertice.node2;
+
+						// "bubble2" is the conected bubble to "bubble" from next iteration
+						Bubble bubble2 = new();		// create bubble2
+						bubble2.node = node2;		// insert its node
+						bubble2.nodesLeftToVisit = bubble.DuplicateNodesLeftToVisit();
+						bubble2.nodesLeftToVisit.Remove(bubble2.node.name);			// set nodes left to visit and remove itself
+						bubble2.previousBubble = bubble;
+						bubble.nextBubbles.Add(bubble.nextBubbles.Count, bubble2);	// conect bubble and bubble2
+
+						columns.Last.Value.AddLast(bubble2);
+					}
+				}
+			}
+
+			public class Bubble
 			{
 				public Node node;
 				public HashSet<string> nodesLeftToVisit;
 				public Dictionary<int, Bubble> nextBubbles;
+				public Bubble previousBubble;
+
+				public HashSet<string> DuplicateNodesLeftToVisit()
+				{
+					return new HashSet<string>(nodesLeftToVisit);
+				}
+			}
+
+			public Bubble checkEnd()
+			{
+				Node mainNode = columns.First.Value.First.Value.node; // first (and only) node of first column (iteration)
+				LinkedList<Bubble> lastColumn = columns.Last.Value;
+				foreach (Bubble bubble in lastColumn)
+				{
+					if (bubble.nodesLeftToVisit.Count == 0 &&
+						bubble.node.name == mainNode.name)
+					{
+						return bubble;
+					}
+				}
+				return null;
 			}
 		}
-
 	}
 }
 
