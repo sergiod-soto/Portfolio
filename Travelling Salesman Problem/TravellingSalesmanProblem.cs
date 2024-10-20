@@ -212,6 +212,21 @@ namespace Travelling_Salesman_Problem
 		public Solution BruteForce_Solver(Map map)
 		{
 			CombinationTree tree = new(map);
+			CombinationTree.Bubble endBubble = null;
+
+			do
+			{
+				tree.NextIteration();
+				endBubble = tree.checkEnd();
+			} while (endBubble != null);
+
+			// endBubble is the first bubble with no nodes left
+			// to visit and is currently at main node
+			//
+			// now i backtrack it to the first bubble to see the path to follow
+
+			LinkedList<Node> path = new();
+
 
 
 			return null;
@@ -225,6 +240,20 @@ namespace Travelling_Salesman_Problem
 			public CombinationTree(Map map)
 			{
 				this.map = map;
+
+				// add main node
+				LinkedList<Bubble> firstColumn = new LinkedList<Bubble>();	// create first column
+				columns.AddFirst(firstColumn);
+				Bubble mainBubble = new();									// create main node's bubble
+				mainBubble.nodesLeftToVisit = new();						// create its nodesLeftToVisit
+				IEnumerator<String> ite = map.nodes.Keys.GetEnumerator();	//
+				
+				while (ite.MoveNext())
+				{
+					mainBubble.nodesLeftToVisit.Add(ite.Current);
+				}
+
+				firstColumn.AddFirst(mainBubble);
 			}
 
 			public void NextIteration()
@@ -239,12 +268,12 @@ namespace Travelling_Salesman_Problem
 						Node node2 = vertice.node2;
 
 						// "bubble2" is the conected bubble to "bubble" from next iteration
-						Bubble bubble2 = new();		// create bubble2
-						bubble2.node = node2;		// insert its node
+						Bubble bubble2 = new();     // create bubble2
+						bubble2.node = node2;       // insert its node
 						bubble2.nodesLeftToVisit = bubble.DuplicateNodesLeftToVisit();
-						bubble2.nodesLeftToVisit.Remove(bubble2.node.name);			// set nodes left to visit and remove itself
+						bubble2.nodesLeftToVisit.Remove(bubble2.node.name);         // set nodes left to visit and remove itself
 						bubble2.previousBubble = bubble;
-						bubble.nextBubbles.Add(bubble.nextBubbles.Count, bubble2);	// conect bubble and bubble2
+						bubble.nextBubbles.Add(bubble.nextBubbles.Count, bubble2);  // conect bubble and bubble2
 
 						columns.Last.Value.AddLast(bubble2);
 					}
