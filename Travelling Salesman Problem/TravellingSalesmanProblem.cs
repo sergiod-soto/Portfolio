@@ -218,14 +218,14 @@ namespace Travelling_Salesman_Problem
 			{
 				tree.NextIteration();
 				endBubble = tree.checkEnd();
-			} while (endBubble != null);
+			} while (tree.columns.Last.Value.Count > 0);   // cambiar a que termine cuando no queden nodos
 
 			// endBubble is the first bubble with no nodes left
 			// to visit and is currently at main node
 			//
 			// now i backtrack it to the first bubble to see the path to follow
 
-			LinkedList<Node> path = new();
+			
 
 
 
@@ -235,25 +235,30 @@ namespace Travelling_Salesman_Problem
 		private class CombinationTree
 		{
 			Map map;
-			LinkedList<LinkedList<Bubble>> columns = new();
+			public LinkedList<LinkedList<Bubble>> columns = new();
+			Solution bestSolution;
+
 
 			public CombinationTree(Map map)
 			{
 				this.map = map;
 
 				// add main node
-				LinkedList<Bubble> firstColumn = new LinkedList<Bubble>();	// create first column
+				LinkedList<Bubble> firstColumn = new LinkedList<Bubble>();  // create first column
 				columns.AddFirst(firstColumn);
-				Bubble mainBubble = new();									// create main node's bubble
-				mainBubble.nodesLeftToVisit = new();						// create its nodesLeftToVisit
-				IEnumerator<String> ite = map.nodes.Keys.GetEnumerator();	//
-				
+				Bubble mainBubble = new();                                  // create main node's bubble
+				mainBubble.nodesLeftToVisit = new();                        // create its nodesLeftToVisit
+				IEnumerator<String> ite = map.nodes.Keys.GetEnumerator();   //
+
 				while (ite.MoveNext())
 				{
 					mainBubble.nodesLeftToVisit.Add(ite.Current);
 				}
 
 				firstColumn.AddFirst(mainBubble);
+
+				mainBubble.path = new();                    // create first node of path
+				mainBubble.path.AddFirst(mainBubble.node);
 			}
 
 			public void NextIteration()
@@ -268,14 +273,22 @@ namespace Travelling_Salesman_Problem
 						Node node2 = vertice.node2;
 
 						// "bubble2" is the conected bubble to "bubble" from next iteration
-						Bubble bubble2 = new();     // create bubble2
-						bubble2.node = node2;       // insert its node
+						Bubble bubble2 = new();             // create bubble2
+						bubble2.node = node2;               // insert its node
+						bubble2.path = new(bubble.path);    // add itself to the path
+						bubble2.path.AddLast(bubble2.node);
 						bubble2.nodesLeftToVisit = bubble.DuplicateNodesLeftToVisit();
 						bubble2.nodesLeftToVisit.Remove(bubble2.node.name);         // set nodes left to visit and remove itself
 						bubble2.previousBubble = bubble;
-						bubble.nextBubbles.Add(bubble.nextBubbles.Count, bubble2);  // conect bubble and bubble2
+						bubble2.weigh = bubble.weigh + bubble.node.vertices[bubble2.node.name].weight; // set bubble's weigh
 
-						columns.Last.Value.AddLast(bubble2);
+
+						// cut heavy weigh branches adding only incomplete better branches
+						if (bestSolution == null ||
+							bubble2.weigh < bestSolution.weight)
+						{
+							columns.Last.Value.AddLast(bubble2);
+						}
 					}
 				}
 			}
@@ -284,8 +297,14 @@ namespace Travelling_Salesman_Problem
 			{
 				public Node node;
 				public HashSet<string> nodesLeftToVisit;
-				public Dictionary<int, Bubble> nextBubbles;
+				public LinkedList<Node> path;
 				public Bubble previousBubble;
+				public int weigh;
+
+				public Bubble()
+				{
+					weigh = 0;
+				}
 
 				public HashSet<string> DuplicateNodesLeftToVisit()
 				{
